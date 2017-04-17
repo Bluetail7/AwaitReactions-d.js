@@ -42,7 +42,7 @@ msg.channel.sendMessage("Simple test").then(x => {
 msg.channel.sendMessage("@all Giveaway").then(x => {
     createReaction(x, String.fromCharCode(55356,57217))
     setTimeout(() => {
-        var test =readReaction(x, String.fromCharCode(55356,57217)).users //.count belongs to message.reactions' Collection
+        var test =readReaction(x, String.fromCharCode(55356,57217)).users //.users belongs to message.reactions' Collection
         if (test.size > 1){msg.channel.sendMessage(test.random().username + " won the giveaway!!")}
         else
         if (test.size === 1){msg.channel.sendMessage("I won the giveaway")}
