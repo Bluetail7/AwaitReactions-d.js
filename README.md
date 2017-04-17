@@ -17,8 +17,8 @@ You are only able to use the data without return, otherwise it will skip the tim
 
 this works if you want to return:
 ```
-function createReaction(index, emoji_code)
-	{return index.react(String.fromCharCode(emoji_code))}
+function createReaction(index, emoji_string)
+	{return index.react(emoji_string)}
 
 function readReaction(index, emoji_string)
 	{	//Use with SetTimeout and after create Reaction.
@@ -28,11 +28,13 @@ function readReaction(index, emoji_string)
 
 //EXAMPLE:
 msg.channel.sendMessage("Simple test").then(x => {
-	createReaction(x, 9876)
+	createReaction(x, String.fromCharCode(9876))
 	setTimeout(() => {
-		if (readReaction(x, 9876).count != -1)
-			{msg.channel.sendMessage("I added a reaction")}
-			else {msg.channel.sendMessage("Not even I reacted")}
+		var test =readReaction(x, String.fromCharCode(9876)).count //.count belongs to message.reactions' Collection
+		if (test > 1){msg.channel.sendMessage(test + " people  added a reaction!")}
+		else
+		if (test === 1){msg.channel.sendMessage("I added a reaction")}
+			else {msg.channel.sendMessage("Nobody reacted")}
 	},5000)
 })
 ```
