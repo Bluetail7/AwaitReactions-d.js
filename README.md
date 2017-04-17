@@ -2,7 +2,7 @@ AwaitReactions for Discord.js
 Still in progress!!!
 
 ```
-function awaitReaction(index, emoji, time)
+async function awaitReaction(index, emoji, time)
 	{
 		index.react(emoji)
 
