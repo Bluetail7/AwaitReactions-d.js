@@ -1,5 +1,6 @@
 AwaitReactions for Discord.js
 Still in progress!!!
+LOOKUP returns the Message.Reactions Collection
 
 ```
 function awaitReaction(index, emoji, time)
