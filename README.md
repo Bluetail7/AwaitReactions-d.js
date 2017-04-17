@@ -2,19 +2,19 @@ AwaitReactions for Discord.js
 Still in progress!!!
 
 ```
-async function awaitReaction(index, emoji, time)
+function awaitReaction(index, emoji, time)
 	{
 		index.react(emoji)
 
 		setTimeout(() => {
 		var lookup = (index.reactions.find(y => y.emoji.toString() === emoji));
-		if (lookup){return (lookup);} else {return (-1);}
+		if (lookup){msg.channel.sendMessage(lookup);} else {msg.channel.sendMessage(-1);}
 		}, time)
 	}
 ```
-THIS DOESNT WORK
+You are only able to use the data without return, otherwise it will skip the timeout.
 
-but this does
+this works if you want to return:
 ```
 function createReaction(index, emoji_code)
 	{return index.react(String.fromCharCode(emoji_code))}
